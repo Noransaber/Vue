@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;700;800&family=Noto+Serif:wght@400;700&family=Playfair+Display:wght@400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <title>Hide Password</title>
+</head>
+<body>
+
+    <div id='Elzero-app' class="container">
+    <h2>{{message}}</h2>
+    
+        <input :type="filedType" placeholder='Type Your Password'>
+        <button class='show' :disabled="filedType === 'text'" type='button' @click='showHideField()'>Show Password</button>
+        <button class='hide' :disabled="filedType === 'password'" type='button' @click='showHideField()' >Hide Password</button>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script scr='./js/vue.js'></script>
+<script>
+    const { createApp } = Vue
+    
+    createApp({
+        data() {
+        return {
+            message: 'Hello Vue, You Are More Than Welcomed!',
+            filedType: 'password',
+        }
+        },
+        methods: {
+        showHideField() {
+        this.filedType = this.filedType === 'password' ? 'text': 'password' 
+        }
+
+        }
+    }).mount('#Elzero-app')
+    </script>
+</body>
+</html>
